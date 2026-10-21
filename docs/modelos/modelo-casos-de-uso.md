@@ -245,21 +245,33 @@ Los apartados 6.1 y 6.2 corresponden a las descripciones detalladas de UC-05 y U
 
 ### 6.2 Descripción detallada UC-21 — Buscar recetas
 
-**Identificador y nombre del caso de uso:** [Indica el caso.]
+**Identificador y nombre del caso de uso:** [Buscar recetas.]
 
-**Objetivo:** [Explica qué resultado pretende obtener el participante.]
+**Objetivo:** [Permitir al usuario registrado buscar una receta que cumpla sus requisitos.]
 
-**Participantes:** [Indica el actor principal y los actores de apoyo, si los hay.]
+**Participantes:** [Analista y usuario registrado.]
 
-**Precondiciones:** [Indica qué se da por cumplido al comenzar. Las comprobaciones que realiza el sistema pertenecen al flujo.]
+**Precondiciones:** [Deberá ser un usuario registrado.]
 
-**Inicio:** [Indica qué acción o suceso inicia el caso.]
+**Inicio:** [La persona usuaria solicita realizar una búsqueda de recetas o accede al apartado de búsqueda.]
 
-**Escenario principal de éxito:** [Describe la secuencia entre los participantes y el sistema.]
+**Escenario principal de éxito:** [
+1. El sistema solicita al menos un criterio de búsqueda.
+2. La persona usuaria indica al menos un criterio de búsqueda y solicita la búsqueda.
+3. El sistema valida que los criterios son correctos y que no existen ingredientes en conflicto (un mismo ingrediente seleccionado para incluir y excluir a la vez).
+4. El sistema ejecuta la búsqueda sobre las recetas publicadas y validadas que cumplen todos los criterios introducidos.
+5. El sistema presenta el listado de resultados ordenado por fecha de publicación. Para cada receta muestra: título, imagen (o «Sin imagen»), calificación promedio (o «Sin valoraciones») y descripción breve.
+6. La persona usuaria selecciona una receta del listado de resultados para consultar su detalle.
+7. El sistema muestra la información detallada de la receta: título, imagen (si existe), ingredientes, instrucciones de preparación, tiempo de cocción, número de porciones, alias de quien la publicó e insignia de validación.
+8. El caso de uso finaliza con éxito.]
 
-**Extensiones (flujos alternativos):** [Vincula cada variación a un paso. Indica cómo continúa o termina.]
+**Extensiones (flujos alternativos):** [
+- La persona usuaria no indica ningún criterio de búsqueda. -> El sistema no ejecuta la consulta y pide que el usuario indique algún criterio.
+- ]
 
-**Postcondiciones:** [Indica qué queda establecido con éxito y qué se conserva o cambia si el caso termina sin éxito o se cancela. Una consulta no requiere modificar datos para alcanzar su objetivo.]
+**Postcondiciones:** [
+- Éxito: La persona usuaria ha consultado los resultados o la información detallada de la receta seleccionada. Al ser un caso de uso de consulta, no se modifican datos del sistema.
+- Cancelación / Finalización sin éxito:** Se conservan los criterios y el orden de la última búsqueda realizada para permitir posteriores reintentos o modificaciones por parte de la persona usuaria.]
 
 **Reglas y NFR pertinentes:** [Remite a los requisitos y actas que condicionan el comportamiento.]
 
